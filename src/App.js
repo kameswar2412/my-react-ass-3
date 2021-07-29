@@ -1,29 +1,26 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import Card from './Cards/card';
+import React from 'react';
+import "./App.css"
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Footer from './components/Footer/footer';
+import Header from './components/Header/header';
+import Home from './components/Home/home';
+import Course from './components/Course/course';
+const App = () => {
+  return ( 
+    <div>
+      <BrowserRouter>
+      <Header />
 
-class App extends Component  {
-  constructor(props) {
-    super(props);
-    this.state = { 
-          Data:[],
-     }
-  }
-  componentDidMount() {
+      <Switch>
+         <Route path="/" exact component={Home}/>
+         <Route path="/Course/:slug" component={Course} />
+         <Route component={()=> <h1>404 page not found</h1> } />
 
-    axios.get("https://api.edyoda.com/v1/blog/")
-    .then((res)=>{
-      this.setState({ Data:res.data });
-    })
-    
-  }
-
-  render() { 
-    return ( 
-    <div className="d-flex flex-wrap">
-      {this.state.Data.map((item,index)=>(<Card {...item} key={index} />))}  
-    </div> );
-  }
+      </Switch>
+      <Footer />
+      </BrowserRouter>
+    </div>
+   );
 }
  
 export default App;

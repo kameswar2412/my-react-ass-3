@@ -1,19 +1,216 @@
-.App {
-  text-align: center;
-  display: flex;
-}
+
 body{
-  padding-right: 2%;
-  padding-left: 2%;
-  padding-top: 2%;
+  text-align: center; 
+  align-items: center;
+  display: flex;
+  font-family: Raleway,sans-serif;
+ position: relative;
+ box-sizing: border-box;
+ font-size: 16px;
+}
+a{
+text-decoration: none;
+}
+
+.top-bar{
+  width: 100%;
+
+  height: 80px;
+  /* position: fixed; */
+
+box-sizing: border-box;
+  background-color: #fff;
+    -webkit-box-shadow: 0 1px 1px #ccc;
+    box-shadow: 0 1px 1px #ccc;
+}
+.top-bar nav{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+
+
+
+}
+.top-bar-2{
+  display: flex;
+  justify-content: space-between;
+
+}
+.right-top-top{
+  display: flex;
+  justify-content: space-between;
+
+}
+.logo-edyoda{
+  -webkit-font-smoothing: antialiased;
+  color: linear-gradient(
+269deg
+,#0048ff,#0096ff),linear-gradient(#000,#000);
+
+    font-family: Raleway,sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.08;
+    letter-spacing: -.9px;
+    text-align: left;
+}
+.logo-stories{
+  margin: 0;
+  padding-top: 5px;
+  object-fit: contain;
+  font-family: Raleway,sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: .8;
+  letter-spacing: .9px;
+  color: #000;
+}
+.top-bar-text-2{
+  min-width: 23em;
+  opacity: .6;
+  font-family: Raleway,sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: .4px;
+  text-align: left;
+  color: rgba(0,0,0,.6);
+  margin-top: .5em;
+}
+.explore-text-top{
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: .9px;
   text-align: center;
+  cursor: pointer;
+}
+.btn-websit{
+  border-radius: 50px;
+  background: linear-gradient(
+269deg
+,#0048ff,#0096ff);
+color: #fff;
+font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: .03em;
+    font-size: 0.75em;
+}
+.nav-link-lkj{
+  color: none;    display: block;
+  text-decoration: none;
+  padding-top: 12px;
+  padding-bottom: 10px;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+.asdfkitjv{
+  /* min-height: 100vh; */
+  padding: 2% 6%;
+  background-color: #f2f6ff;
+  position: relative;
+}
+
+
+
+
+
+.category-container{
+  text-align: center;
+  align-items: center;
+  
+}
+
+.category-link{
+  width: auto;
+  font-size: .75em;
+  /* color: #0084ff; */
+  padding: 6px 16px;
+  border-radius: 10px;
+  border: 1px solid #0084ff;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.card{
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 0;
+  margin-bottom: 1em;
+  background-color: #fff;
+  -webkit-box-shadow: 0 3px 10px 0 rgba(0,0,0,.1);
+  box-shadow: 0 3px 10px 0 rgba(0,0,0,.1);
+  border-radius: 5px;
+  border: 1px solid rgba(0,168,255,.3);
 }
 .card-img{
   width: 100%;
-  height: 11em;
+  height:11em;
 }
 .card-text{
   padding: .7em 1.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+text-decoration: none;
+
+}
+.card-title{
+  font-family: Raleway,sans-serif;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: left;
+  margin: 0;
+  font-size: 1.3em;
+  font-weight: 600;
+  line-height: 1.14;
+  color: #000;
+  word-break: break-word;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+text-decoration: none;
+
+}
+.authorname{
+  font-family: Raleway,sans-serif;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: left;
+  margin: 0;
+  font-size: .75em;
+  font-weight: 500;
+  line-height: 2;
+  color: #0096ff;
+  padding-top: 4px;
+  text-decoration: none;
+
+}
+.publish-date{
+  word-break: break-word;
+  color: #000;
+  display:flex;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 10.5ch;
+  margin: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  text-decoration: none;
+
 }
 .grid-text{
   opacity: .5;
@@ -29,16 +226,25 @@ body{
   margin: .8em 0;
   padding-top: 6px;
   white-space: pre-wrap;
+  
+   word-break: break-word;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 5; /* number of lines to show */
+   -webkit-box-orient: vertical;
+text-decoration: none;
 }
-.card{
-  width: 90%;
-  height: auto;
-  margin: 0 auto;
-  margin-top: 0;
-  margin-bottom: 1em;
-  background-color: #fff;
-  -webkit-box-shadow: 0 3px 10px 0 rgba(0,0,0,.1);
-  box-shadow: 0 3px 10px 0 rgba(0,0,0,.1);
-  border-radius: 5px;
-  border: 1px solid rgba(0,168,255,.3);
+.course-page{
+  padding: 2% 22%;
+  margin-top: 1em;
 }
+.course-img-page{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+}
+.course-page-text-container{ 
+     padding-right: 20px;
+     padding-left: 20px;
+  padding-top: 5px;}
