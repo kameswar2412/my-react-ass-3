@@ -11,20 +11,25 @@ class Home extends Component {
         super(props);
         this.state = { 
             Data:[],
-        SearchData:[],
         Category:[],
         loader:true,
-         }
-         console.log(props)
-    }
+        searchData:" "
 
+
+         };
+    }
+    
+      handleData=(value)=>{
+        this.setState({searchData:value} )
+    return ;
+    }
     componentDidMount() {
-            axios.get("https://api.edyoda.com/v1/blog/")
+            axios.get("https://api.edyoda.com/v1/blog/"  )
             .then((res)=>{
               this.setState({Data:res.data});
-              this.setState({SearchData:res.data});
               this.setState({loader:false})
               // console.log(res.data)
+
 
             })
             axios.get("https://api.edyoda.com/v1/blog/postcategories/")
@@ -32,10 +37,14 @@ class Home extends Component {
               this.setState({Category:res.data})
             })
           }
-
+          componentDidUpdate(){
+            axios.get("https://api.edyoda.com/v1/blog/" +this.state.searchData +"/" )
+            .then((res)=>this.setState({Data:res.data.posts}))
+          }
 
     render() { 
         return ( 
+          <div>
           <div className="asdfkitjv">
                   <div >
                      <Filter />
@@ -45,14 +54,14 @@ class Home extends Component {
                      <div className="m-1 p-1 category-link">
                      <h6>All</h6>
                      </div>
-                       {this.state.Category.map((item,index)=>(<Category 
+                       {this.state.Category.map((item,index)=>(<Category onSet={this.handleData}
                        {...item} key={index}/>))}
                     </div>
                     <div className="d-flex flex-wrap">
                       {this.state.loader ? <h1>Loading..!</h1> :  this.state.Data.map((item,index)=>(<Card {...item} key={index} />))}  
                     </div>
           </div>
-              
+          </div>  
               
         );
     }
@@ -64,6 +73,5 @@ export default Home;
 
 
 
-//  {/* <Searchbox searchVal={(val)=>this.setState({Data:this.state.Category.filter(({title})=>title.toLowerCase().includes(val))})}  /> */}
                
     
