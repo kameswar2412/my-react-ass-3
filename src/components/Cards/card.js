@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 const Card = (props) => {
+  
+    // console.log(props)
+
     const {id,small_image,title,posted_on,description,authorname,slug}=props
     return ( 
     <Link to={`/course/${slug}`}>

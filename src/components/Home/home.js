@@ -6,11 +6,12 @@ import Filter from '../Category/Filer/filer';
 
 
 
-class Home extends Component {
+class Home extends Component  {
     constructor(props) {
         super(props);
         this.state = { 
             Data:[],
+           allData:"",
         Category:[],
         loader:true,
         searchData:" "
@@ -20,27 +21,42 @@ class Home extends Component {
     }
     
       handleData=(value)=>{
-        this.setState({searchData:value} )
+        this.setState({searchData:value  } )
     return ;
+    }
+    clearData=(e)=>{
+      this.setState({allData:""})
+      this.setState({searchData:""})
     }
     componentDidMount() {
             axios.get("https://api.edyoda.com/v1/blog/"  )
             .then((res)=>{
               this.setState({Data:res.data});
+              this.setState({allData:res.data})
               this.setState({loader:false})
               // console.log(res.data)
-
 
             })
             axios.get("https://api.edyoda.com/v1/blog/postcategories/")
             .then((res)=>{
               this.setState({Category:res.data})
+              // console.log(res.data)
             })
+            
           }
-          componentDidUpdate(){
+    componentDidUpdate(){
             axios.get("https://api.edyoda.com/v1/blog/" +this.state.searchData +"/" )
             .then((res)=>this.setState({Data:res.data.posts}))
+            axios.get("https://api.edyoda.com/v1/blog/" +this.state.allData )
+            .then((res)=>{
+              this.setState({Data:res.data});
+              this.setState({allData:res.data})
+              this.setState({loader:false})
+              // console.log(res.data)
+          
+            })
           }
+         
 
     render() { 
         return ( 
@@ -52,7 +68,7 @@ class Home extends Component {
 
                    <div className="d-flex flex-wrap category-container " >
                      <div className="m-1 p-1 category-link">
-                     <h6>All</h6>
+                     <h6 onClick={this.clearData} >All</h6>
                      </div>
                        {this.state.Category.map((item,index)=>(<Category onSet={this.handleData}
                        {...item} key={index}/>))}
@@ -65,7 +81,9 @@ class Home extends Component {
               
         );
     }
+   
 }
+
  
 export default Home;
 
