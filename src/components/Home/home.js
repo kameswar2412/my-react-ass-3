@@ -21,7 +21,8 @@ class Home extends Component  {
     }
     
       handleData=(value)=>{
-        this.setState({searchData:value  } )
+        this.setState({searchData:value} )
+        console.log(value)
     return ;
     }
     clearData=(e)=>{
@@ -45,7 +46,7 @@ class Home extends Component  {
             
           }
     componentDidUpdate(){
-            axios.get("https://api.edyoda.com/v1/blog/" +this.state.searchData +"/" )
+            axios.get("https://api.edyoda.com/v1/blog/" +this.state.searchData +"/")
             .then((res)=>this.setState({Data:res.data.posts}))
             axios.get("https://api.edyoda.com/v1/blog/" +this.state.allData )
             .then((res)=>{
